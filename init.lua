@@ -311,6 +311,11 @@ require('lazy').setup({
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
+      -- tell which-key to listen for plain `s` as a trigger
+      triggers = {
+        { "<auto>", mode = "nxso" },   -- keep the default “auto” triggers
+        { "s",       mode = { "n", "v" } },  -- add our new `s` prefix
+      },
       -- delay between pressing a key and opening which-key (milliseconds)
       -- this setting is independent of vim.o.timeoutlen
       delay = 0,
@@ -349,6 +354,19 @@ require('lazy').setup({
           F11 = '<F11>',
           F12 = '<F12>',
         },
+      },
+      -- define your groups and labels under `defaults`
+      defaults = {
+        -- top-level group
+        s  = { name = "+surround" },
+
+        -- child mappings
+        sa = "add surround",
+        sd = "delete surround",
+        sr = "replace surround",
+        sf = "find surround",
+        sh = "highlight surround",
+        sn = "surround: widen search",
       },
 
       -- Document existing key chains
@@ -928,7 +946,7 @@ require('lazy').setup({
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- - sd'   - [S]urround [D]elete [']quotes
+      -- - sd   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       vim.keymap.set('n', 's', '<Nop>') -- remove substitute motion
       require('mini.surround').setup()
