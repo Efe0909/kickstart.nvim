@@ -1,6 +1,6 @@
 return {
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
-
+  'tpope/vim-sleuth',
   --
   -- require 'plugins.kickstart.extra.debug',
   require 'plugins.kickstart.extra.indent_line',

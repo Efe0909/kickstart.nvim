@@ -1,4 +1,4 @@
--- ~/.config/nvim/lua/plugins/luasnip_extra.lua
+-- ~/.config/nvim/lua/plugins/custom/luasnip_extra.lua
 return {
   'L3MON4D3/LuaSnip',
   ---* Kickstart already loads LuaSnip; this block just appends config.

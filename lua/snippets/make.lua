@@ -1,4 +1,10 @@
--- ~/.config/nvim/lua/snippets/make.lua
+local ls = require 'luasnip'
+local fmt = require('luasnip.extras.fmt').fmt
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+
 return {
   s(
     { trig = 'mkproj', dscr = 'Scaffold Makefile: src/ → build/ → bin/ with toggleable build profiles' },
